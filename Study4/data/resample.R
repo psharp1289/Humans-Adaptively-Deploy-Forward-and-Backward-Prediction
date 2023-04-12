@@ -15,8 +15,7 @@ pvals_m1 <- list()
 pvals_m2 <- list()
 pvals_m3 <- list()
 
-  
-  
+
 for (i in 1:1000){
     
     # Sample 100 sub_ids with replacement
@@ -45,32 +44,26 @@ for (i in 1:1000){
         
     
     # Fit hierarchical regressions and extract BICs
-    results_lmm <- glmer(q ~e +s_log+(1|sub_id_to_use)+(1|trial),
+    results_lmm <- glmer(Choice ~ Divergence + log(Avg Succ Prob) + (1|sub_id_to_use)+(1|trial),
                          family = binomial, data = df_selected,
                          control = glmerControl(optimizer = "bobyqa"))
     
     res_obj<-summary(results_lmm)
     pval<-(res_obj$coefficients[11])/2.0
-
-    results_lmm2 <- glmer(q ~ e+m_log+(1|sub_id_to_use)+(1|trial),
+    
+    results_lmm2 <- glmer(Choice ~ Divergence + log(Avg Pred Prob) + log(Avg Succ Prob) + (1|sub_id_to_use)+(1|trial),
                           family = binomial, data = df_selected,
                           control = glmerControl(optimizer = "bobyqa"))
-    
     
     res_obj2<-summary(results_lmm2)
     pval2<-(res_obj2$coefficients[11])/2.0
     
-    results_lmm3 <- glmer(q ~ e+(1|sub_id_to_use)+(1|trial),
+    results_lmm3 <- glmer(Choice ~ Divergence + (1|sub_id_to_use)+(1|trial),
                           family = binomial, data = df_selected,
                           control = glmerControl(optimizer = "bobyqa"))
-    
-    
     res_obj3<-summary(results_lmm3)
     pval3<-(res_obj3$coefficients[8])/2.0
 
-    
-
-    
     
     # Append BIC difference to list
     pvals_m1[[i]] <- pval
