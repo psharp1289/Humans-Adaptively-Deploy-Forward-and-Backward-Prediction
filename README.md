@@ -1,4 +1,4 @@
-# Humans Adaptively Deploy-Forward and Backward Planning Repository
+# Humans Adaptively Deploy Forward and Backward Planning
 
 Preprint: https://psyarxiv.com/wdbg4/
 
