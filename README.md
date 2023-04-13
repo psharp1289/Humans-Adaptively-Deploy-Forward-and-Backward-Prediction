@@ -36,7 +36,7 @@ The authors validate the applicability of these findings to real-life learning i
       - Main analysis in [models.ipynb](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study4/data/models.ipynb)
     - [graph_task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study4/graph_task)
 
-- All raw data is its a zipped file outside of study folder
+- All raw data is in a zipped file outside of study folder
 
 ### OSF Repository
 
