@@ -67,10 +67,10 @@ mb_key='key_resp_31.keys'
 trident='trident.png'
 planet='planet.png'
 sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
-
+rt_planning=[]
 sub_names=[sub for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
 
-subs_csv=[['sub','SR Evidence','bias_highbaserate','pre_map_change','post_map_change']]
+subs_csv=[['sub','SR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr']]
 
 sub_num=0
 for df in sub_dfs:
@@ -103,6 +103,8 @@ for df in sub_dfs:
 
 					if q_type=='baseratebias':
 						base_rate_high+=1
+
+
 				
 
 			

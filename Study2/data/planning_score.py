@@ -47,10 +47,11 @@ response='key_resp_25.keys'
 mb_key='key_resp_31.keys'
 trident='trident.png'
 planet='planet.png'
-sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
-sub_names=[sub for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
+rt_planning='key_resp_25.rt'
+sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
+sub_names=[sub for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
 
-subs_csv=[['sub','PR Evidence','bias_highbaserate','pre_map_change','post_map_change']]
+subs_csv=[['sub','PR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr']]
 
 sub_num=0
 for df in sub_dfs:
@@ -63,7 +64,7 @@ for df in sub_dfs:
 	tr_score=0
 	pr_one=0
 	base_rate_high=0
-
+	rts_planning=0
 	transition_revaluation=0
 	for row in range(len(df[response])):
 
@@ -83,9 +84,11 @@ for df in sub_dfs:
 
 					if q_type=='predecessorRepresentation':
 						evidence_predecessorRepresentation+=1
+						
 
 					if q_type=='baseratebias':
 						base_rate_high+=1
+					rts_planning+=float(df[rt_planning][row])
 		
 			
 			elif counter_planning>10:
@@ -100,7 +103,7 @@ for df in sub_dfs:
 
 					
 
-	current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0]
+	current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,rts_planning]
 	subs_csv.append(current_row)
 	sub_num+=1
 
