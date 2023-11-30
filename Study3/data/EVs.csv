@@ -9,7 +9,7 @@ Houses (low),0.12,0.6,0.6,1,10,,6,snorkel.png, ,houses.png, ,planet.png,Get to P
 Compass (low),0.048,0.6,0.6,-1,9,,2,houses.png, ,tophat.png, ,planet.png,Get to PLANET for 100 points!
 Apple (high),0.048,0.6,0.6,-1,8,,7,tophat.png, ,hammer.png, ,planet.png,Get to PLANET for 100 points!
 hammer (high),0.12,0.6,0.6,1,7,,5,compass.png, ,train.png, ,planet.png,Get to PLANET for 100 points!
-hammer.png,0,0,0.6,-1,11,,12,north.png, ,apple.png, ,trident.png,Get to TRIDENT for 100 points!
-compass.png,0,0,0.6,-1,14,,14,apple.png, ,tophat.png, ,planet.png,Get to PLANET for 100 points!
-houses.png,0,0,0.6,1,13,,11,tophat.png, ,hammer.png, ,planet.png,Get to PLANET for 100 points!
-apple.png,0,0,0.6,1,12,,13,hammer.png, ,north.png, ,trident.png,Get to TRIDENT for 100 points!
+hammer.png,0,0,1,-1,11,,12,north.png, ,apple.png, ,trident.png,Get to TRIDENT for 100 points!
+compass.png,0,0,1,-1,14,,14,apple.png, ,tophat.png, ,planet.png,Get to PLANET for 100 points!
+houses.png,0,0,1,1,13,,11,tophat.png, ,hammer.png, ,planet.png,Get to PLANET for 100 points!
+apple.png,0,0,1,1,12,,13,hammer.png, ,north.png, ,trident.png,Get to TRIDENT for 100 points!

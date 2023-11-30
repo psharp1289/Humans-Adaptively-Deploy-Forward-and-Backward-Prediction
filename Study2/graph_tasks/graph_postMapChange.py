@@ -136,9 +136,9 @@ for icon_name, (x, y, width, height) in icon_positions.items():
             strength+=0.10
         if strength==0.50:
             strength+=0.25
-        arrow_color = plt.cm.get_cmap('hsv')(strength)
-        if strength==1.00:
-            arrow_color='black'
+        
+        arrow_color = plt.cm.get_cmap('gray').reversed()(strength)
+
 
         if probability not in probs:
             legend_text='{}'.format(probability)

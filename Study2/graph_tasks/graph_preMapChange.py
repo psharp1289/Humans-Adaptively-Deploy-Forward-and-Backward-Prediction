@@ -1,10 +1,15 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib
+import numpy as np
+import matplotlib
 import numpy
-plt.rcParams["font.size"] = 12  # Replace 12 with the desired font size
+import matplotlib.lines as mlines
+from matplotlib.legend_handler import HandlerBase
 
+plt.rcParams["font.size"] = 18  # Replace 12 with the desired font size
 
+font_size=18
 # Define the icons as variables
 trident = plt.imread("trident.png")
 planet = plt.imread("planet.png")
@@ -77,7 +82,7 @@ for key, val in state_transitions_dictionary.items():
 
 
 # Create a new figure
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(14, 6))
 
 # Set the limits of the x and y axes
 ax.set_xlim([0, 1.80])
@@ -143,23 +148,24 @@ for icon_name, (x, y, width, height) in icon_positions.items():
         
 
         
-        arrow_color = plt.cm.get_cmap('hsv')(strength)
-        if strength==1.0:
-            arrow_color='black'
+        arrow_color = plt.cm.get_cmap('gray').reversed()(strength)
+
 
 
         if probability not in probs:
-            legend_text='{}'.format(probability)
-            legend_handles.append(mpatches.Patch(color=arrow_color, label=legend_text))
-            labels.append(legend_text)
-            probs.append(probability)
+            if probability<1:
+                legend_text='{}'.format(probability)
+                legend_handles.append(mpatches.Patch(color=arrow_color, label=legend_text))
+                labels.append(legend_text)
+                probs.append(probability)
 
 
         # Add the arrow to the plot
-        ax.arrow(
-            arrow_x, arrow_y, target_x - arrow_x, target_y - arrow_y,
-            head_width=0.015, head_length=0.02,linewidth=2.0, fc=arrow_color, ec=arrow_color
-        )
+        if strength>0.4:
+            ax.annotate("", xy=(target_x, target_y), xytext=(arrow_x,arrow_y), arrowprops=dict(facecolor=arrow_color,edgecolor=arrow_color),zorder=6)
+        else:
+            ax.annotate("", xy=(target_x, target_y), xytext=(arrow_x,arrow_y), arrowprops=dict(facecolor=arrow_color,edgecolor=arrow_color),zorder=4)
+
     icon_image = eval(icon_name)
     ax.imshow(icon_image, extent=[x - width / 2, x + width / 2, y - height / 2, y + height / 2])
 
@@ -168,13 +174,76 @@ ax.set_xticks([])
 ax.set_yticks([])
 ax.set_xticklabels([])
 ax.set_yticklabels([])
+ax.axis('off')
+
+# Remove the axes border
+ax.axis('off')
+
+# Adjust the legend position
+class LeftAlignedHandler(HandlerBase):
+    def create_artists(self, legend, orig_handle, xdescent, ydescent, width, height, fontsize, trans):
+        # create a proxy artist that is just a blank rectangle
+        patch = mpatches.Rectangle(xy=(xdescent, ydescent), width=width, height=height, color='none', transform=trans)
+        # create a text object on the left of the rectangle
+        text = mtext.Text(xdescent + width - self.handlelength, ydescent + height / 2., orig_handle.get_label(), verticalalignment='center', horizontalalignment='left', fontsize=fontsize, color=orig_handle.get_text_properties()['color'], transform=trans)
+        # return the created artists
+        return [patch, text]
+order = np.argsort(probs)[::-1]
+print(order)
+
+first_legend = plt.legend([legend_handles[idx] for idx in order],
+                          [labels[idx] for idx in order],
+                          handler_map={str: LeftAlignedHandler()},  # use the custom handler for strings
+                          loc='center left',
+                          bbox_to_anchor=(0.91, 0.5),
+                          title="Transition\nProbabilities",
+                          ncol=1,
+                          fontsize=font_size,
+                          frameon=False)
+# Add the first legend manually to the plot
+plt.gca().add_artist(first_legend)
 
 
-order=numpy.argsort(probs)
-plt.legend([legend_handles[idx] for idx in order],[labels[idx] for idx in order],prop={'size': 12},loc='upper center',title="transition probabilities",ncol=len(transitions))
+# Create custom handles for the second part of the legend
+base_rate_handles = [mpatches.Patch(color='none', label='p = 0.33     '),
+                     mpatches.Patch(color='none', label='     p = 0.67')]
 
-# Set the title of the plot
-plt.title('State Space Study 2 Before Map Change')
+# Create the second part of the legend for Base Rates
+# Notice that the bbox_to_anchor values will need to be adjusted to position
+# this second legend below the first one.
+legend = plt.legend(handles=base_rate_handles,
+           loc='upper center',
+           bbox_to_anchor=(0.5, 0.95),  # Adjust these values as needed
+           title="Base Rates",
+           ncol=2,
+           handlelength=0,  # Hide the patch
+           handletextpad=0,  # Remove space between the patch and the text
+           borderaxespad=0.,
+           fontsize=font_size,
+           frameon=False)  # Remove the border and padding
+
+title_x = legend.get_bbox_to_anchor().xmin
+title_y = legend.get_bbox_to_anchor().ymax
+for text in legend.get_texts():
+    # Get the position of the text in the legend
+    text_x = text.get_position()[0]
+    text_y = text.get_position()[1]
+    print(title_x)
+    print(text_x)
+    
+    # Draw an arrow from the title to each entry
+    ax.plot([0.72, 0.77],[0.90, 0.92],color='black',linewidth=1,linestyle='-',zorder=8)
+    ax.plot([1.08, 1.03],[0.90, 0.92],color='black',linewidth=1,linestyle='-',zorder=8)
+                
+
+
+# Set the title of the plot and adjust position
+# plt.title('State Space Study 2 Before Map Change',pad=-1)  # Adjust the pad value as needed
+
+# Optionally, adjust spacing manually
+plt.subplots_adjust(top=0.7)
+
+# # Adjust the layout
 plt.tight_layout()
 plt.savefig('State Space 2 Pre Map', dpi=300)
 # Show the plot

@@ -1,12 +1,13 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
+sns.set(style='white', font='arial',palette='Set2', font_scale=1.5, rc=None)
 
 # Given data
 model_names = ['PR', 'SR', 'MB', 'BR']
 BICs = [
-818.7608
-,941.9823
-,913.3419
+892.1961
+,915.5886
+,915.5886
 ,946.7576]
 
 # Calculate delta BICs

@@ -1,4 +1,4 @@
-,sub_id,v,trial,Choice,Divergence,Avg Pred Prob,Avg Succ Prob,Base Rate Ratio,Base Rate Ratio log,Avg Pred Prob log,Avg Succ Prob log
+,sub_id,v,trial,Choice,Divergence,Avg Pred Prob,Avg Succ Prob,Base Rate Ratio,Base Rate Ratio log,AvgPredProblog,AvgSuccProblog
 0,1,1.0,1,1,7.06,0.42,0.00036,11.49,2.4414770918606643,-0.8675005677047231,-7.929406526514119
 1,1,1.0,2,1,6.7,0.45,0.00055,6.11,1.809926773183504,-0.7985076962177716,-7.505592279737757
 2,1,1.0,3,1,5.51,0.42,0.0017,11.49,2.4414770918606643,-0.8675005677047231,-6.3771270279199666

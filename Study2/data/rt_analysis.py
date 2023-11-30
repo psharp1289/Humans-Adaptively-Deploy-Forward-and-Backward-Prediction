@@ -56,7 +56,7 @@ RT_all='click_action.rt'
 sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
 sub_names=[sub for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
 
-subs_csv=[['sub','PR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr','median_RT_actionselection','trial_num','planning_q','PR_individual_answers']]
+subs_csv=[['sub','PR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr','median_RT_actionselection','trial_num','planning_q','PR_individual_answers','experiment']]
 
 sub_num=0
 for df in sub_dfs:
@@ -70,6 +70,7 @@ for df in sub_dfs:
 	pr_one=0
 	base_rate_high=0
 	rts_planning=[]
+	trial_counter=[]
 	planning_qs=[]
 	pr_individual_answers=[]
 	transition_revaluation=0
@@ -81,11 +82,12 @@ for df in sub_dfs:
 			if counter_planning<11:
 				
 
-				planning_qs.append(float(df[planning_q2][row]))
+				planning_qs.append(1)
 
 				query_num=str(int(df[im2][row]))
 				q_type=dict_response[str(int(df[im2][row]))][0]
 				if q_type=='predecessorRepresentation':
+					trial_counter.append(counter_planning)
 					rts_planning.append(float(df[rt_planning][row]))
 				if str(int(df[im2][row])) in mb_responses:
 					if int(df[response][row])==rr_dict[str(int(df[im2][row]))][1]:
@@ -126,7 +128,7 @@ for df in sub_dfs:
 
 					
 	for i in range(len(rts_planning)):
-		current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),i+1,planning_qs[i],pr_individual_answers[i]]
+		current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),trial_counter[i],planning_qs[i],pr_individual_answers[i],1]
 		subs_csv.append(current_row)
 
 	# current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,np.median(rts_planning)]

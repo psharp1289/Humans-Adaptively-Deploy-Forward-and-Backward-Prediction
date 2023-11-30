@@ -75,7 +75,7 @@ RT_all='click_action.rt'
 
 
 
-subs_csv=[['sub','SR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr','median_RT_actionselection','trial_num','planning_q','PR_individual_answers']]
+subs_csv=[['sub','SR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr','median_RT_actionselection','trial_num','planning_q','PR_individual_answers','experiment']]
 
 sub_num=0
 for df in sub_dfs:
@@ -87,6 +87,7 @@ for df in sub_dfs:
 	rr_score=0
 	tr_score=0
 	pr_one=0
+	trial_counter=[]
 	base_rate_high=0
 	rts_planning=[]
 	planning_qs=[]
@@ -107,7 +108,7 @@ for df in sub_dfs:
 				q_type=dict_response[str(int(df[im2][row]))][0]
 				if q_type=='successorRepresentation':
 					rts_planning.append(float(df[rt_planning2][row]))
-
+					trial_counter.append(counter_planning)
 				if str(int(df[im2][row])) in mb_responses:
 					if int(df[response][row])==rr_dict[str(int(df[im2][row]))][1]:
 						rr_score+=1
@@ -118,7 +119,7 @@ for df in sub_dfs:
 
 					if q_type=='successorRepresentation':
 						evidence_successorRepresentation+=1
-						pr_invidiual_qs.append(0)
+						pr_invidiual_qs.append(1)
 
 
 					if q_type=='baseratebias':
@@ -126,7 +127,7 @@ for df in sub_dfs:
 
 				else:
 					if q_type=='successorRepresentation':
-						pr_invidiual_qs.append(1)
+						pr_invidiual_qs.append(0)
 
 				
 
@@ -143,7 +144,7 @@ for df in sub_dfs:
 
 					
 	for i in range(len(rts_planning)):
-		current_row=[sub_name,evidence_successorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),i+1,planning_qs[i],pr_invidiual_qs[i]]
+		current_row=[sub_name,evidence_successorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),trial_counter[i],planning_qs[i],pr_invidiual_qs[i],3]
 		subs_csv.append(current_row)
 
 	# current_row=[sub_name,evidence_predecessorRepresentation/6.0,base_rate_high/4.0,rr_score/4.0,tr_score/4.0,np.median(rts_planning)]

@@ -66,9 +66,9 @@ response='key_resp_25.keys'
 mb_key='key_resp_31.keys'
 trident='trident.png'
 planet='planet.png'
-sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
+sub_dfs=[pd.read_csv(sub) for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
 rt_planning=[]
-sub_names=[sub for sub in os.listdir(os.curdir) if sub.endswith('csv') and 'planning' not in sub]
+sub_names=[sub for sub in os.listdir(os.curdir) if sub.startswith('5') or sub.startswith('6')]
 
 subs_csv=[['sub','SR Evidence','bias_highbaserate','pre_map_change','post_map_change','rt_planning_pr']]
 
