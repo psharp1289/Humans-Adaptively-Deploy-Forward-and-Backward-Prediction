@@ -1,0 +1,18 @@
+pwd
+getwd()
+setwd('Documents_local/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/RT_analysis/')
+ls
+rt_r
+rt_r.r
+library(lme4)#
+library(dplyr)#
+library(arm)#
+#
+# Define the dataframe df_new here (not shown)#
+df_new <- read.csv("rt_df_for_r.csv")#
+# Fit hierarchical regressions and extract BICs#
+results_lmm <- glmer(log_rt_planning ~ PR_individual_answers+trial_num+(PR_individual_answers+trial_num|sub+experiment),#
+                          data = df_new,#
+                         control = glmerControl(optimizer = "bobyqa"))#
+    res_obj<-summary(results_lmm)#
+		res_obj
