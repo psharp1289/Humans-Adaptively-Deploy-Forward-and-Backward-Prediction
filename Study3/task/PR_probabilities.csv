@@ -1,0 +1,24 @@
+s3_image,Next Image,Probability
+planet.png,compass.png,0.183
+planet.png,north.png,0.125
+trident.png,houses.png,0.243
+trident.png,hammer.png,0.114
+trident.png,train.png,0.071
+planet.png,houses.png,0.183
+planet.png,train.png,0.125
+trident.png,snorkel.png,0.071
+planet.png,tophat.png,0.125
+trident.png,compass.png,0.243
+planet.png,window.png,0.133
+trident.png,tophat.png,0.071
+trident.png,apple.png,0.114
+planet.png,snorkel.png,0.125
+trident.png,north.png,0.071
+planet.png,watch.png,0.367
+planet.png,bell.png,0.25
+trident.png,watch.png,0.486
+trident.png,fox.png,0.229
+trident.png,tree.png,0.143
+planet.png,tree.png,0.25
+trident.png,bell.png,0.143
+planet.png,unicorn.png,0.133
