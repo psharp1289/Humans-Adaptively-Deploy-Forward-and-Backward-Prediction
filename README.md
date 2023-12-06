@@ -1,4 +1,4 @@
-# Humans Adaptively Deploy Forward and Backward Planning
+# Humans Adaptively Deploy Forward and Backward Prediction
 
 Preprint: https://psyarxiv.com/wdbg4/
 
@@ -6,11 +6,7 @@ Paul B. Sharp and Eran Eldar
 
 ### Brief summary of findings
 
-RL models assume agents rely on learned forward predictions to plan their future choices, but the authors of the paper show that backward predictions can be more efficient in some situations, particularly in environments where the number of states an agent may occupy increases with time.
-
-In three preregistered experiments, the authors find that humans adaptively deploy forward and backward learning in the service of efficient planning. Specifically, humans engage in backward learning and planning in a diverging environment, where backward predictions can be more compactly represented than forward predictions. Conversely, in a converging environment, humans favor forward learning and planning.
-
-The authors validate the applicability of these findings to real-life learning in a large-scale real-world prediction task.
+Leading models of human decision-making assume humans learn forward predictions, from a given state to the outcomes that typically follow it. Here, we show that in many situations decision-making can be made more efficient by relying on backward predictions, from a given outcome to the states that typically precede it. This holds specifically in environments where the number of possible outcomes exceeds the number of possible starting states (i.e., in divergent environments), because in such environments, backward predictions can be more compactly represented than forward predictions. Correspondingly, in five preregistered experiments, we find that humans engage in backward prediction in a divergent environment, and in forward prediction in a convergent environment. Importantly, we show that such predictions are flexibly employed for singles-step decisions, for multistep planning, and for real-world predictions. Thus,we establish that humans adaptively deploy forward and backward prediction in the service of efficient decision-making.
 
 ### General structure of repository
 
@@ -35,6 +31,17 @@ The authors validate the applicability of these findings to real-life learning i
     - [data](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study4/data)
       - Main analysis in [models.ipynb](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study4/data/models.ipynb)
     - [graph_task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study4/graph_task)
+  - [Study5](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study5)
+    - [task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study5/task)
+    - [data](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study5/data)
+      - Main analysis in [models.ipynb](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study5/data/models.ipynb)
+    - [graph_task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study5/graph_task)
+  - [Study6](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study6)
+    - [task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study6/task)
+    - [data](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study6/data)
+      - Main analysis in [models.ipynb](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study6/data/models.ipynb)
+    - [graph_task](https://github.com/psharp1289/Humans-Adaptively-Deploy-Forward-and-Backward-Planning/tree/main/Study6/graph_task)
+
 
 - All raw data is in a zipped file outside of study folder
 
