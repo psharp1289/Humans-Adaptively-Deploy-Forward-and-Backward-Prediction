@@ -196,12 +196,11 @@ for df in sub_dfs:
 				if num_high_br>0:
 					current_row=[sub_name,evidence_predecessorRepresentation/num_correct_pr,base_rate_high/num_correct_br,rr_score/4.0,tr_score/4.0,twostep_planning_score/4.0,num_correct_pr,num_correct_br,high_br/num_high_br,low_br/num_low_br]
 
-	if total_correct>5:
 
-		subs_csv.append(current_row)
-		sub_num+=1
-	else:
-		print('\nBAD SUB: {}\n'.format(sub_name))
+	subs_csv.append(current_row)
+	sub_num+=1
+	# else:
+	# 	print('\nBAD SUB: {}\n'.format(sub_name))
 
 
 with open('choice_consistency.csv','w') as f:

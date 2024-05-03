@@ -162,7 +162,7 @@ for df in sub_dfs:
 
 			for i in range(len(rts_planning)):
 				print(i)
-				current_row=[sub_name,evidence_predecessorRepresentation/num_correct_pr,base_rate_high/num_correct_br,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),trial_counter[i],planning_qs[i],pr_individual_answers[i],2]
+				current_row=[sub_name,evidence_predecessorRepresentation/num_correct_pr,base_rate_high/num_correct_br,rr_score/4.0,tr_score/4.0,rts_planning[i],np.median(avg_RTs),trial_counter[i],planning_qs[i],pr_individual_answers[i],5]
 				subs_csv.append(current_row)
 
 	sub_num+=1

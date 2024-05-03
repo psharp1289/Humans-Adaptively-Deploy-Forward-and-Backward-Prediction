@@ -91,7 +91,7 @@ for df in sub_dfs:
 			dict_image_history[df[im3][row]][1]+=1
 		if np.isfinite(df[response][row]): #valid response
 			resp=dict_response[df[response][row]]
-			if learning_reward_goal_list[index_im] in acceptable: #where fwd and bwd planning agree on policy
+			if learning_reward_goal_list[index_im] in acceptable: #where fwd and bwd planning agree on policy at 80%
 				if ans_counter>4:
 					if int(df[response][row])==corrects[ans_counter-5]:
 							totals+=1
@@ -104,7 +104,7 @@ for df in sub_dfs:
 			index_im+=1
 			if index_im==18:
 				index_im=0
-		if np.isfinite(df[response2][row]):
+		if np.isfinite(df[response2][row]): #make sure second-stage is also remembered at 80%
 			if int(df[trial_num2][row])>4:
 				if dict_secondstage[int(df[trial_num2][row])]==int(df[response2][row]):
 					totals+=1
@@ -115,13 +115,11 @@ for df in sub_dfs:
 
 	current_row=[sub_name,totals/9.0]
 	subs_csv.append(current_row)
-	# if (totals/9.0)<0.7:
-	# 	move_file(subs[sub_num], 'bad_subjects/{}'.format(subs[sub_num]))
 
 	sub_num+=1
 	
 
 
-with open('memory_totals2.csv','w') as f:
+with open('memory_totals.csv','w') as f:
 	writer=csv.writer(f)
 	writer.writerows(subs_csv)
