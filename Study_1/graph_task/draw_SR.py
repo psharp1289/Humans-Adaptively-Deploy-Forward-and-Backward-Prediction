@@ -268,7 +268,7 @@ rewarded_states={'fox':138,'train':168,'north':215}
 offsets=[0,0,0,0,0,0]
 index=0
 
-font_size=22
+font_size=30
 for s_state in successor_states:
     # Create a new figure
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -316,11 +316,10 @@ for s_state in successor_states:
 
             if transition in rewarded_states.keys():
                 if type_strategy[index]=='SR':
-                    print('here')
-                    ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                    ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6,fontname="Arial")
                 else:
                     if transition==s_state:
-                        ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                        ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6,fontname="Arial")
                        
 
 
@@ -357,9 +356,9 @@ for s_state in successor_states:
         sm = plt.cm.ScalarMappable(cmap=salmon_cmap)
         cbar = plt.colorbar(sm, ax=ax, fraction=0.036, orientation='horizontal')
         cbar.ax.get_xaxis().labelpad=-20
-        cbar.set_label('p(s\'|s)', fontdict={'size': font_size})
+        cbar.set_label('p(s\'|s)', fontdict={'size': font_size,'fontname':"Arial"})
         cbar.set_ticks([0, 1])
-        cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size)
+        cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size,fontname="Arial")
 
     if type_strategy[index] == 'PR':
 
@@ -367,13 +366,13 @@ for s_state in successor_states:
         sm = plt.cm.ScalarMappable(cmap=blue_cmap)
         cbar = plt.colorbar(sm, ax=ax, fraction=0.036, orientation='horizontal')
         cbar.ax.get_xaxis().labelpad=-20
-        cbar.set_label('p(s|s\')', fontdict={'size': font_size})
+        cbar.set_label('p(s|s\')', fontdict={'size': font_size,'fontname':"Arial"})
         cbar.set_ticks([0, 1])
-        cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size)
+        cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size,fontname="Arial")
 
     # # Adjust the layout
     plt.tight_layout()
 
     # Save and show the plot
-    plt.savefig('{}_{}_Fig1.png'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
+    plt.savefig('{}_{}_Fig1.pdf'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
     index+=1

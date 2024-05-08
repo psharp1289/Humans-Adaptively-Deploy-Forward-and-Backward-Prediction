@@ -9,6 +9,8 @@ from matplotlib.legend_handler import HandlerBase
 
 plt.rcParams["font.size"] = 18  # Replace 12 with the desired font size
 
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
 font_size=18
 # Define the icons as variables
 trident = plt.imread("trident.png")
@@ -185,7 +187,7 @@ class LeftAlignedHandler(HandlerBase):
         # create a proxy artist that is just a blank rectangle
         patch = mpatches.Rectangle(xy=(xdescent, ydescent), width=width, height=height, color='none', transform=trans)
         # create a text object on the left of the rectangle
-        text = mtext.Text(xdescent + width - self.handlelength, ydescent + height / 2., orig_handle.get_label(), verticalalignment='center', horizontalalignment='left', fontsize=fontsize, color=orig_handle.get_text_properties()['color'], transform=trans)
+        text = mtext.Text(xdescent + width - self.handlelength, ydescent + height / 2., orig_handle.get_label(), verticalalignment='center', horizontalalignment='left', fontsize=fontsize, fontname="Arial" ,color=orig_handle.get_text_properties()['color'], transform=trans)
         # return the created artists
         return [patch, text]
 order = np.argsort(probs)[::-1]
@@ -245,7 +247,7 @@ plt.subplots_adjust(top=0.7)
 
 # # Adjust the layout
 plt.tight_layout()
-plt.savefig('State Space 2 Pre Map', dpi=300)
+plt.savefig('statespace2.pdf', dpi=300)
 # Show the plot
 plt.show()
 

@@ -12,6 +12,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import colorsys
 
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
+
 # Function to create a colormap
 def create_colormap(hue, saturation, n_colors=256):
     """
@@ -253,7 +256,7 @@ rewarded_states={'snorkel':100}
 
 offsets=[0,0,0,0,0,0]
 index=0
-font_size=22
+font_size=30
 
 legend_handles=[]
 labels=[]
@@ -305,10 +308,10 @@ for s_state in successor_states:
             if transition in rewarded_states.keys():
                 if type_strategy[index]=='SR':
                     print('here')
-                    ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                    ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
                 else:
                     if transition==s_state:
-                        ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                        ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
                        
 
 
@@ -345,7 +348,7 @@ for s_state in successor_states:
             cbar = plt.colorbar(sm, ax=ax, fraction=0.036, pad=0.01, orientation='horizontal')
             cbar.set_label('p(s\'|s)', fontdict={'size': font_size})
             cbar.set_ticks([0, 1])
-            cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size)
+            cbar.ax.set_xticklabels(['0', '1'], fontname='Arial',fontsize=font_size)
 
     if type_strategy[index] == 'PR':
         if index==2:
@@ -354,11 +357,11 @@ for s_state in successor_states:
             cbar = plt.colorbar(sm, ax=ax, fraction=0.036, pad=0.01, orientation='horizontal')
             cbar.set_label('p(s|s\')', fontdict={'size': font_size})
             cbar.set_ticks([0, 1])
-            cbar.ax.set_xticklabels(['0', '1'], fontsize=font_size)
+            cbar.ax.set_xticklabels(['0', '1'], fontname='Arial',fontsize=font_size)
 
     # # Adjust the layout
     plt.tight_layout()
 
     # Save and show the plot
-    plt.savefig('{}_{}_Fig2.png'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
+    plt.savefig('{}_{}_Fig2.pdf'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
     index+=1

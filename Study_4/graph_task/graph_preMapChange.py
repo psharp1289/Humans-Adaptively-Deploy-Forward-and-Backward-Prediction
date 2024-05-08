@@ -10,6 +10,8 @@ from matplotlib.legend_handler import HandlerBase
 plt.rcParams["font.size"] = 18  # Replace 12 with the desired font size
 
 font_size=18
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
 
 # Define the icons as variables
 trident = plt.imread("trident.png")
@@ -237,14 +239,14 @@ for text in legend.get_texts():
 
 
 # Set the title of the plot and adjust position
-plt.title('State Space Study 5 Before Map Change',pad=-1)  # Adjust the pad value as needed
+# plt.title('State Space Study 5 Before Map Change',pad=-1)  # Adjust the pad value as needed
 
 # Optionally, adjust spacing manually
-plt.subplots_adjust(top=0.7)
+# plt.subplots_adjust(top=0.7)
 
 # # Adjust the layout
 plt.tight_layout()
-plt.savefig('State Space 2 Pre Map', dpi=300)
+plt.savefig('statespace4.pdf',bbox_inches='tight', dpi=300)
 # Show the plot
 plt.show()
 

@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import colorsys
 
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
+
 # Function to create a colormap
 def create_colormap(hue, saturation, n_colors=256):
     """
@@ -41,7 +44,7 @@ blue_colormap = create_colormap(blue_hue, saturation)
 blue_cmap = mcolors.ListedColormap(blue_colormap)
 
 
-plt.rcParams["font.size"] = 14  # Replace 12 with the desired font size
+plt.rcParams["font.size"] = 30  # Replace 12 with the desired font size
 
 
 # Define the icons as variables
@@ -255,7 +258,7 @@ rewarded_states={'planet':100}
 
 offsets=[0,0,0,0,0,0]
 index=0
-font_size=22
+font_size=30
 
 legend_handles=[]
 labels=[]
@@ -306,10 +309,10 @@ for s_state in successor_states:
             if transition in rewarded_states.keys():
                 if type_strategy[index]=='SR':
                     print('here')
-                    ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                    ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
                 else:
                     if transition==s_state:
-                        ax.text(target_x-0.062, target_y-0.17, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
+                        ax.text(target_x-0.076, target_y-0.21, "{}".format(rewarded_states[transition]),fontsize=font_size,zorder=6)
                        
 
 
@@ -360,6 +363,6 @@ for s_state in successor_states:
     # plt.tight_layout()
 
     # Save and show the plot
-    plt.savefig('{}_{}_Fig3.png'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
+    plt.savefig('{}_{}_Fig3.pdf'.format(s_state,type_strategy[i]), dpi=300, bbox_inches='tight')
     index+=1
 

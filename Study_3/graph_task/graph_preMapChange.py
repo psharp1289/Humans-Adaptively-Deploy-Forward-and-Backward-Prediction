@@ -9,6 +9,10 @@ from matplotlib.legend_handler import HandlerBase
 plt.rcParams["font.size"] = 18  # Replace 12 with the desired font size
 
 font_size=18
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
 # Define the icons as variables
 trident = plt.imread("trident.png")
 planet = plt.imread("planet.png")
@@ -270,7 +274,7 @@ for text in legend.get_texts():
 
 # Set the title of the plot
 # plt.tight_layout()
-plt.savefig('State Space 3 Pre Map', dpi=300)
+plt.savefig('statespace3.pdf', dpi=300)
 # Show the plot
 plt.show()
 

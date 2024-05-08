@@ -9,6 +9,10 @@ import numpy as np
 plt.rcParams["font.size"] = 18  # Replace 12 with the desired font size
 font_size=18
 
+import matplotlib as mpl
+mpl.rc('font',family='Arial')
+
+
 # Define the icons as variables
 trident = plt.imread("trident.png")
 planet = plt.imread("planet.png")
@@ -174,7 +178,7 @@ class LeftAlignedHandler(HandlerBase):
         # create a proxy artist that is just a blank rectangle
         patch = mpatches.Rectangle(xy=(xdescent, ydescent), width=width, height=height, color='none', transform=trans)
         # create a text object on the left of the rectangle
-        text = mtext.Text(xdescent + width - self.handlelength, ydescent + height / 2., orig_handle.get_label(), verticalalignment='center', horizontalalignment='left', fontsize=fontsize, color=orig_handle.get_text_properties()['color'], transform=trans)
+        text = mtext.Text(xdescent + width - self.handlelength, ydescent + height / 2., orig_handle.get_label(), verticalalignment='center', horizontalalignment='left', fontsize=fontsize,fontname="Arial" ,color=orig_handle.get_text_properties()['color'], transform=trans)
         # return the created artists
         return [patch, text]
 
@@ -233,5 +237,5 @@ fig.canvas.draw()
 
 plt.draw()
 # Save and show the plot
-plt.savefig('State Space 1 Pre Map', dpi=300)
+plt.savefig('statespace1.pdf',dpi=300)
 plt.show()

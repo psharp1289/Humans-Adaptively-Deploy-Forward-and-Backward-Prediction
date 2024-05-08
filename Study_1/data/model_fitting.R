@@ -219,8 +219,8 @@ my_plot <- ggplot(log_marginal_likelihoods_df, aes(x = reorder(Variable, LogMarg
   geom_bar(stat = "identity", fill = "black") +
   coord_flip() +
   theme_minimal(base_size = 40) +
-  labs(x = NULL, y = "Bayes Factor relative to Null", title = "Model Comparison") +
-  theme(plot.title = element_text(hjust = 0.5, size = 40, margin = margin(b = 10)),
+  labs(x = NULL, y = "Bayes Factor relative to Null", title = "Model Comparison",face = "bold") +
+  theme(plot.title = element_text(hjust = 0.5, size = 40, margin = margin(b = 10),face = "bold"),
         plot.background = element_rect(fill = "white", colour = "white", size = 1.5),
         panel.grid = element_blank(),
         axis.text = element_text(size = 40, color = "black"), # Make all text black
