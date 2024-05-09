@@ -1,0 +1,7 @@
+sub,PR Evidence,bias_highbaserate,pre_map_change,post_map_change,two_step_planning,query_counts_PR,query_counts_BR
+62fb79e7c968f4fc555d1e2f_study5_pr_2_2023-06-22_21h46.26.882.csv,0.5,0.5,1.0,0.0,0.5,4,4
+614b94457a6ec7a724e0ffd6_study5_pr_2_2023-06-22_15h11.30.270.csv,0.5,0.5,1.0,0.0,0.75,4,4
+5study5_pr_2_2023-06-22_15h59.38.336.csv,1.0,0.5,1.0,0.5,0.5,4,4
+5e7fa0e918b10804bb87eb63_study5_pr_2_2023-06-22_19h28.25.859.csv,0.5,0.5,1.0,1.0,1.0,4,4
+5fac2995bbe58415e0ac6a1e_study5_pr_2_2023-06-22_15h51.02.726.csv,0.5,0.75,0.75,1.0,0.75,4,4
+641358a332a1837ff26bb10e_study5_pr_2_2023-06-22_15h35.56.326.csv,0.75,0.75,0.75,0.0,0.0,4,4

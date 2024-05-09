@@ -65,8 +65,7 @@ sub_names=[x for x in os.listdir(os.curdir) if x.startswith('5') or x.startswith
 sub_num=0
 for df in sub_dfs:
 	sub_name=sub_names[sub_num]
-	df.to_csv('{}'.format(sub_name))
-	print(sub_name)
+
 	
 	evidence_predecessorRepresentation=0
 	pre_evidence_predecessorRepresentation=0
