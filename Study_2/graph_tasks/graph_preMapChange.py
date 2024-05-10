@@ -84,7 +84,7 @@ for key, val in state_transitions_dictionary.items():
 
 
 # Create a new figure
-fig, ax = plt.subplots(figsize=(14, 6))
+fig, ax = plt.subplots(figsize=(12, 10))
 
 # Set the limits of the x and y axes
 ax.set_xlim([0, 1.80])
@@ -246,7 +246,7 @@ for text in legend.get_texts():
 plt.subplots_adjust(top=0.7)
 
 # # Adjust the layout
-plt.tight_layout()
+# plt.tight_layout()
 plt.savefig('statespace2.pdf', dpi=300)
 # Show the plot
 plt.show()
